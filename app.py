@@ -41,11 +41,11 @@ def root():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     db = get_db_connection()
-    
     if 'user_id' in session:
         return redirect('/dashboard')
     
     error = None
+    show_toast = False
     if request.method == 'POST':
         username = request.form['username']
         password_input = request.form['password']
@@ -61,16 +61,17 @@ def login():
                 if bcrypt.check_password_hash(hashed_password, password_input):
                     session['user_id'] = user_id
                     return redirect('/dashboard')
+            show_toast = True
             error = 'Invalid username or password'
     db.close()
-    return render_template('login.html', error=error)
+    return render_template('login.html', error=error, show_toast=show_toast, toast_message=error)
 
 
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' not in session:
         return redirect('/')
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', show_toast=True, toast_message="Login Successful")
 
 @app.route('/logout')
 def logout():
