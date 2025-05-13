@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Daftar Pelanggan</title>
+</head>
+
+<body>
+    <ul id="list-pelanggan"></ul>
+    <h1>Daftar Pelanggan</h1>
+    <script>
+        fetch("/api/pelanggan")
+            .then((response) => response.json())
+            .then((data) => {
+                const list = document.getElementById("list-pelanggan");
+                data.forEach((item) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${item.nama_pelanggan} - ${item.alamat}`;
+                    list.appendChild(li);
+                });
+            });
+    </script>
+</body>
+
+</html>

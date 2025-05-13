@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<meta name="description" content="Halaman login website" />
+<link href="{{ url_for('static', filename='css/test.css') }}" rel="stylesheet" />
+<link href="{{ url_for('static', filename='css/switch-darkmode.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<section class="flex gap-16 max-h-screen px-16 py-12 bg-gray-900">
+    <div
+        class=" w-full max-w-xl bg-white border  rounded-lg shadow-sm dark:bg-gray-900">
+
+        <div class="inline-flex items-center justify-between w-full">
+            <h5 class="text-2xl font-medium text-[#06b6b6]">
+                LOGIN
+            </h5>
+            <div class="relative">
+                <input type="checkbox" id="dark-toggle" class="dark-toggle-checkbox sr-only" checked>
+                <label for="dark-toggle"
+                    class="dark-toggle-label flex items-center h-6 w-12 rounded-full bg-gray-200 cursor-pointer transition-colors duration-300">
+                    <div
+                        class="dark-toggle-button absolute left-0 w-6 h-6 rounded-full bg-[#06b6b6] flex items-center justify-center transition-transform duration-300">
+                        <!-- Sun icon (hidden initially) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white sun-icon-2 hidden" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <!-- Moon icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white moon-icon-2" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <form id="login-form" class="flex flex-col items-center justify-center space-y-12 h-full" method="POST"
+            action="/login" data-error="{{ 'true' if error else 'false' }}">
+            <div class="space-y-2">
+                <h5 class="text-5xl font-medium text-gray-900 dark:text-white text-center">
+                    Hello, User!
+                </h5>
+                <p class="text-lh text-gray-900 dark:text-gray-500 text-center">Welcome To My Website</p>
+            </div>
+            <div class="w-full">
+                <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                    username</label>
+                <input type="text" name="username" id="username"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    placeholder="Username" required />
+            </div>
+            <div class="w-full">
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                    password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    required />
+            </div>
+
+            <button type="submit"
+                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Login to your account
+            </button>
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                Not registered?
+                <a href="/register" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+            </div>
+
+        </form>
+    </div>
+    <div class="w-full rounded-4xl overflow-hidden dark:bg-gray-800">
+        <img src="https://images.unsplash.com/photo-1742218762991-4ab5c4519195?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Decorative background image" class="w-full h-full object-cover" />
+        />
+    </div>
+</section>
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+<script src="{{ url_for('static', filename='js/switch-darkmode.js') }}"></script>
+{% endblock %}

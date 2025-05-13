@@ -1,0 +1,26 @@
+.input-field {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.input-field.error {
+    border-color: red;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}

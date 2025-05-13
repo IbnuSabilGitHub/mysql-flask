@@ -1,0 +1,14 @@
+/* Custom styles for the toggles */
+
+
+.dark-toggle-checkbox:checked+.dark-toggle-label {
+    background-color: #666;
+}
+
+.dark-toggle-checkbox:checked+.dark-toggle-label .dark-toggle-button {
+    transform: translateX(100%);
+    background-color: #06b6b6;
+}
+
+
+
