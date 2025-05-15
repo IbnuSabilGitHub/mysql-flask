@@ -1,2 +1,47 @@
 @import "tailwindcss";
 /* npx @tailwindcss/cli -i ./static/css/input.css -o ./static/dist/output.css --watch */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-color-base-secondary: var(--base-secondar);
+  --color-subtext: var(--subtext);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-secondary: var(---accent-secondary);
+  --color-link: var(--link);
+
+  --radius-soft: 12px;
+
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+:root {
+  --background: #FFF4E0;
+  --foreground: #46474b;
+
+  --base-secondary: #2A2A2E;
+  --subtext: #C5C6C7;
+
+  --accent: #5DB4BD;
+  --accent-hover: #43838a;
+  --accent-secondary: #6C5B7B;
+  --link: #FFB86C;
+}
+
+.dark {
+  --background: #46474B;
+  --foreground: #FFF4E0;
+
+  --base-secondary: #2A2A2E;
+  --subtext: #fff4e05f;
+
+  --accent: #5DB4BD;
+  --accent-hover: #43838a;
+  --accent-secondary: #6C5B7B;
+  --link: #FFB86C;
+}
