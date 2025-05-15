@@ -2,7 +2,7 @@
 
 
 .dark-toggle-checkbox:checked+.dark-toggle-label {
-    background-color: #666;
+    background-color: var(--color-background);
 }
 
 .dark-toggle-checkbox:checked+.dark-toggle-label .dark-toggle-button {

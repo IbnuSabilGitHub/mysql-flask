@@ -34,11 +34,11 @@
 }
 
 .dark {
-  --background: #46474C;
+  --background: #46474B;
   --foreground: #FFF4E0;
 
   --base-secondary: #2A2A2E;
-  --subtext: #fff4e0;
+  --subtext: #fff4e05f;
 
   --accent: #5DB4BD;
   --accent-hover: #43838a;
