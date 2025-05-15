@@ -8,8 +8,8 @@
 {% endblock %}
 
 {% block content %}
-<section class="flex gap-42 max-h-screen px-42 py-12 bg-gray-900">
-    <div class=" w-full max-w-xl bg-white border  rounded-lg shadow-sm dark:bg-gray-900">
+<section class="flex gap-42 max-h-screen px-42 py-16 bg-gray-900">
+    <div class=" flex flex-col w-full max-w-xl bg-white border rounded-lg shadow-sm dark:bg-gray-900">
         <div class="inline-flex items-center justify-between w-full">
             <h5 class="text-2xl font-medium text-[#06b6b6]">
                 LOGIN
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <form id="login-form" class="flex flex-col items-center justify-center space-y-12 h-full" method="POST"
+        <form id="login-form" class="flex flex-col items-center justify-center space-y-16 h-full" method="POST"
             action="/login" data-error="{{ 'true' if error else 'false' }}">
             <div class="space-y-2">
                 <h5 class="text-5xl font-medium text-gray-900 dark:text-white text-center">
@@ -68,12 +68,38 @@
                 Not registered?
                 <a href="/register" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
             </div>
-
         </form>
+        <div class="inline-flex gap-4 m-auto">
+            <a href="https://www.facebook.com/" target="_blank"
+                class="flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white font-medium rounded-lg text-sm w-10 h-10 text-center dark:hover:text-white">
+                <i class="fa-brands fa-github text-xl"></i>
+                <span class="sr-only">GitHub</span>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank"
+                class="flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white font-medium rounded-lg text-sm w-10 h-10 text-center dark:hover:text-white">
+                <i class="fa-brands fa-linkedin text-xl"></i>
+                <span class="sr-only">Linkdin</span>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank"
+                class="flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white font-medium rounded-lg text-sm w-10 h-10 text-center dark:hover:text-white">
+                <i class="fa-brands fa-discord text-xl"></i>
+                <span class="sr-only">Discord</span>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank"
+                class="flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white font-medium rounded-lg text-sm w-10 h-10 text-center dark:hover:text-white">
+                <i class="fa-brands fa-instagram text-xl"></i>
+                <span class="sr-only">GitHub</span>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank"
+                class="flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white font-medium rounded-lg text-sm w-10 h-10 text-center dark:hover:text-white">
+                <i class="fa-brands fa-facebook text-xl"></i>
+                <span class="sr-only">GitHub</span>
+            </a>
+        </div>
     </div>
     <div class="w-full rounded-4xl overflow-hidden dark:bg-gray-800">
-        <img src="{{ url_for('static', filename='img/login-img-2.jpeg') }}"
-            alt="Decorative background image" class="w-full h-full object-cover object-top" />
+        <img src="{{ url_for('static', filename='img/login-img-2.jpeg') }}" alt="Decorative background image"
+            class="w-full h-full object-cover object-top" />
         />
     </div>
 </section>
@@ -89,8 +115,7 @@
             <span class="sr-only">Fire icon</span>
         </div>
         <div id="toast-message" class="ms-3 text-sm font-normal">Set yourself free.</div>
-        <button type="button"
-            onclick="hideToast()"
+        <button type="button" onclick="hideToast()"
             class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
             data-dismiss-target="#toast-bottom-right" aria-label="Close">
             <span class="sr-only">Close</span>
@@ -112,13 +137,13 @@
 
 
 {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            <script>
-                showToast("{{ message }}");
-            </script>
-        {% endfor %}
-    {% endif %}
+{% if messages %}
+{% for category, message in messages %}
+<script>
+    showToast("{{ message }}");
+</script>
+{% endfor %}
+{% endif %}
 {% endwith %}
 {% endblock %}
 
